@@ -1,0 +1,24 @@
+version: '2'
+services:
+
+  deploymentservice:
+    image: wilhelmstephan/grpc-api-for-saltstack-deployment-service
+    ports:
+      - "40011:40011"
+    command: ["java", "-jar", "/fapra/gRPCContainer.jar", "40011"]
+    
+  deploymentscript:
+    build: ./DockerContainerGenericDeploymentScript/
+    links:
+      - "deploymentservice:ssds2"
+    environment:
+      - IP_SERVER=ssds2
+      - PORT_SERVER=40011
+      # PROVIDE YOUR INFORMATION:
+      - KEY_PAIR_NAME=CHANGE
+      - KEY_ID=CHANGE
+      - KEY_SECRET=CHANGE
+      - SECURITY_GROUP_NAME=CHANGE
+    depends_on:
+      - deploymentservice
+    command: ["/fapra/scenario4.sh"]
