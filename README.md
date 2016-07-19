@@ -2,6 +2,7 @@
 
 The wordpress deployment script container runs a test script which tests wordpress specific deployment methods.
 It starts two EC2 instances, deploys MySQL and Wordpress and connects those two components.
+The wordpress installation is reachable at ```<host>/wordpress/``` or ```<host>/FAPRA-TEST/wordpress/```.
 Important: The generic deployment method applies SaltStateFiles (ssl) on a remote machine. But it can not send customized files to a remote machine. Thus it is not possible to configure installed application (we would have to send a customized config file). So you have to set the database of the wordpress installation manually (via browser).
 
 There is a preconfigured scenario for each test script (```docker-compose-wordpress.yml``` and ```docker-compose-generic.yml```).

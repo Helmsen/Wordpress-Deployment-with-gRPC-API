@@ -6,9 +6,9 @@ services:
     ports:
       - "40011:40011"
     command: ["java", "-jar", "/fapra/gRPCContainer.jar", "40011"]
-    
+
   deploymentscript:
-    build: ./DockerContainerWordpressDeploymentScript/
+    build: ./DockerContainerGenericDeploymentScript/
     links:
       - "deploymentservice:ssds1"
     environment:
@@ -21,4 +21,4 @@ services:
       - SECURITY_GROUP_NAME=CHANGE
     depends_on:
       - deploymentservice
-    command: ["/fapra/scenario1.sh"]
+    command: ["/fapra/scenario4.sh"]
