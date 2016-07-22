@@ -17,6 +17,10 @@ security_group_name=$SECURITY_GROUP_NAME
 number="1"
 region="us-west-1"
 
+printf "\n"
+echo "Wait 10s until adapter is initialized"
+sleep 10s
+
 # Create machine 1
 echo ""
 echo "CREATE MACHINE 1"
